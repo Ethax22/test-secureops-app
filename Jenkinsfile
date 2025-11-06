@@ -12,15 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo '========== BUILD =========='
-                sh 'chmod +x gradlew'
-                sh './gradlew clean build -x test'
+                bat 'gradlew.bat clean build -x test'
             }
         }
         
         stage('Unit Tests') {
             steps {
                 echo '========== UNIT TESTS =========='
-                sh './gradlew test'
+                bat 'gradlew.bat test'
             }
             post {
                 always {
